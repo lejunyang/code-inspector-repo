@@ -1,0 +1,22 @@
+{
+  "name": "code-inspector-plugin-vue-scope-repro",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "inspect": "node scripts/inspect-build.mjs"
+  },
+  "dependencies": {
+    "@rsbuild/core": "1.7.5",
+    "@rsbuild/plugin-less": "1.4.0",
+    "@rsbuild/plugin-vue": "1.1.2",
+    "@code-inspector/core": "1.6.1",
+    "code-inspector-plugin": "1.6.1",
+    "less": "^4.3.0",
+    "vue": "3.5.33"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
