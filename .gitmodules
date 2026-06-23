@@ -1,0 +1,3 @@
+[submodule "code-inspector"]
+	path = code-inspector
+	url = git@github.com:lejunyang/code-inspector.git

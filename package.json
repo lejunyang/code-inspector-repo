@@ -4,16 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "setup:inspector": "pnpm --dir code-inspector install --frozen-lockfile --ignore-scripts && pnpm build:inspector",
+    "build:inspector": "pnpm --dir code-inspector --filter \"./packages/*\" run build",
     "build": "rsbuild build",
     "inspect": "node scripts/inspect-build.mjs",
+    "verify:demo": "pnpm build && pnpm inspect",
     "serve": "serve dist -s" 
   },
   "dependencies": {
-    "@code-inspector/core": "1.6.1",
+    "@code-inspector/core": "link:./code-inspector/packages/core",
     "@rsbuild/core": "1.7.5",
     "@rsbuild/plugin-less": "1.4.0",
     "@rsbuild/plugin-vue": "1.1.2",
-    "code-inspector-plugin": "1.6.1",
+    "code-inspector-plugin": "link:./code-inspector/packages/code-inspector-plugin",
     "less": "^4.3.0",
     "vue": "3.5.33"
   },

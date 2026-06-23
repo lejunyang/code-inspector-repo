@@ -4,25 +4,32 @@ import { pluginVue } from '@rsbuild/plugin-vue';
 import { codeInspectorPlugin } from 'code-inspector-plugin';
 
 export default defineConfig({
-  source: {
-    entry: {
-      index: './src/main.ts',
-    },
-  },
-  plugins: [pluginLess(), pluginVue()],
-  tools: {
-    rspack: {
-      plugins: [
-        codeInspectorPlugin({
-          dev: true,
-          server: 'close',
-          bundler: 'rspack',
-          behavior: {
-            locate: false,
-            copy: true,
-          },
-        }),
-      ],
-    },
-  },
+	source: {
+		entry: {
+			index: './src/main.ts',
+		},
+	},
+	plugins: [
+		pluginLess(),
+		pluginVue({
+			vueLoaderOptions: {
+				isServerBuild: false,
+			},
+		}),
+	],
+	tools: {
+		rspack: {
+			plugins: [
+				codeInspectorPlugin({
+					dev: true,
+					server: 'close',
+					bundler: 'rspack',
+					behavior: {
+						locate: false,
+						copy: true,
+					},
+				}),
+			],
+		},
+	},
 });
